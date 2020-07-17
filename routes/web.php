@@ -50,5 +50,73 @@ Route::get('/model', function() {
     ]);
     dd($user);*/
     
-    return \App\User::all();
+    //Search a user store
+
+    //$user = \App\User::find(4);
+    
+    //return $user->store()->count(); **quantas lojas o usuário possui**
+
+    //return $user->store; //Um-para-um retorna um objeto único quando chamado o atributo //Muitos-para-muitos retorna uma collection
+
+    //Search a store product
+    $loja = \App\Store::find(1);
+    
+    //Como uma loja possui diversos produtos, pode-se usar o count no atributo
+    //return $loja->products->count();
+
+    // return $loja->products | return $loja->products()->where('id', 1)->get();
+
+    //Search a store category 
+    //$categoria = \App\Category::find(1);
+
+    //$categoria->products;
+
+    //Create a store for user
+    /*$user = \App\User::find(10);
+    $store = $user->store()->create([
+        'nome' => 'Loja teste',
+        'descricao' => 'Loja criada para testar o mass assignment do laravel',
+        'telefone' => '11989774157',
+        'celular' => '11854778452',
+        'slug' => 'loja-teste'
+    ]);
+    
+    dd($store);*/
+
+    //Create a product for store
+    /*$store = \App\Store::find(41);
+    $product = $store->products()->create([
+        'nome' => 'Mesa legal',
+        'descricao' => 'Um produto muito legal para testar',
+        'body' => 'Teste teste teste teste teste teste teste teste',
+        'price' => 2999.90,
+        'slug' => 'mesa-legal'
+    ]);
+
+    dd($product);*/
+
+    //Create a category
+    /*\App\Category::create([
+        'name' => 'Games',
+        'description' => null,
+        'slug' => 'games'
+    ]);
+    \App\Category::create([
+        'name' => 'Móveis',
+        'description' => null,
+        'slug' => 'moveis'
+    ]);
+
+    return \App\Category::all();*/
+
+    //Add a product for a category
+    //$product = \App\Product::find(55);
+    //dd($product->categories()->attach([2]));
+    //dd($product->categories()->detach([2])); //Remove
+    //dd($product->categories()->sync([2])); //Adiciona itens que tem no array
+
+    //$product = \App\Product::find(55);
+
+    //return $product->categories;
+
 });
