@@ -17,11 +17,20 @@ use App\{
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
+| Route::get -- Retorno
+| Route::post -- Criação
+| Route::put -- Atualização
+| Route::patch -- Atualização
+| Route::delete -- Remoção
+| Route::options -- Retorno de cabeçalhos respondidos pela rota
+|
 */
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/admin/stores', 'Admin\\StoreController@index'); //O @ chama um método da classe
 
 Route::get('/model', function() {
     //$product = Product::all(); //Select * from products
@@ -120,3 +129,5 @@ Route::get('/model', function() {
     //return $product->categories;
 
 });
+
+
