@@ -26,11 +26,18 @@ use App\{
 |
 */
 
+Route::prefix('admin')->namespace('Admin')->group(function(){
+    Route::prefix('stores')->group(function(){
+        Route::get('/', 'StoreController@index'); //O @ chama um método da classe
+        Route::get('/create', 'StoreController@create');
+        Route::post('/store', 'StoreController@store');
+    });
+});
+
+
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/admin/stores', 'Admin\\StoreController@index'); //O @ chama um método da classe
 
 Route::get('/model', function() {
     //$product = Product::all(); //Select * from products
