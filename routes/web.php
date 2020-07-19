@@ -27,11 +27,18 @@ use App\{
 */
 
 Route::prefix('admin')->namespace('Admin')->group(function(){
+
     Route::prefix('stores')->group(function(){
+
         Route::get('/', 'StoreController@index'); //O @ chama um método da classe
         Route::get('/create', 'StoreController@create');
         Route::post('/store', 'StoreController@store');
+        Route::get('/{store}/edit', 'StoreController@edit');
+        Route::post('/update/{store}', 'StoreController@update');
+        Route::get('/destroy/{store}', 'StoreController@destroy');
+
     });
+
 });
 
 
