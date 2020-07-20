@@ -1,39 +1,47 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Criar loja</h1>
-    <form action="/admin/stores/store" method="post">
+    <h1>Criar produto</h1>
+    <form action="{{route('admin.products.store')}}" method="post">
     <input type="hidden" name="_token" value='{{csrf_token()}}' class='form-control'>
+    
     <div class='form-group'>
-        <label>Nome da loja</label>
+        <label>Nome do produto</label>
         <input type="text" name='nome' class='form-control'>
     </div>
+
     <div class='form-group'>
         <label>Descrição</label>
         <input type="text" name='descricao' class='form-control'>
     </div>
+
     <div class='form-group'>
-        <label>Telefone</label>
-        <input type="text" name='telefone' class='form-control'>
+        <label>Conteúdo</label>
+        <textarea name="body" id="" cols="30" rows="10" class='form-control'></textarea>
     </div>
+
     <div class='form-group'>
-        <label>Celular/Whatsapp</label>
-        <input type="text" name='celular' class='form-control'>
+        <label>Preço</label>
+        <input type="text" name='price' class='form-control'>
     </div>
+    
     <div class='form-group'>
         <label>Slug</label>
         <input type="text" name='slug' class='form-control'>
     </div>
+
     <div class='form-group'>
-        <label>Usuário</label>
-        <select name='user' class='form-control'>
-            @foreach($users as $user)
-            <option value='{{$user->id}}'>{{$user->name}}</option>
+        <label>Lojas</label>
+        <select name='store' class='form-control'>
+            @foreach($stores as $store)
+            <option value='{{$store->id}}'>{{$store->nome}}</option>
             @endforeach
         </select>
     </div>
+
     <div class='form-group'>
-        <button type="submit" class='btn btn-lg btn-success'>Criar loja</button>
+        <button type="submit" class='btn btn-lg btn-success'>Criar produto</button>
     </div>
+
     </form>
 @endsection
