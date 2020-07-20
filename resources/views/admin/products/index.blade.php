@@ -8,6 +8,7 @@
                 <th>#</th>
                 <th>Produto</th>
                 <th>Preço</th>
+                <th>Loja</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -16,9 +17,17 @@
                 <tr>
                     <td>{{$p->id}}</td>
                     <td>{{$p->nome}}</td>
+                    <td>R$ {{number_format($p->price, 2, ',', '.')}}</td>
+                    <td>{{$p->store->nome}}</td>
                     <td>
-                        <a href="{{route('admin.products.edit', ['product' => $p->id])}}" class="btn btn-sm btn-primary">Editar</a>
-                        <a href="{{route('admin.products.destroy', ['product' => $p->id])}}" class="btn btn-sm btn-danger">Remover</a>
+                        <div class="btn-group">
+                            <a href="{{route('admin.products.edit', ['product' => $p->id])}}" class="btn btn-sm btn-primary">Editar</a>
+                            <form action="{{route('admin.products.destroy', ['product' => $p->id])}}" method="POST">
+                                @csrf
+                                @method("DELETE")
+                                <button type="submit" class='btn btn-sm btn-danger'>Remover</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
             @endforeach
