@@ -3,7 +3,7 @@
 @section('content')
     <h1>Criar produto</h1>
     <form action="{{route('admin.products.store')}}" method="post">
-    <input type="hidden" name="_token" value='{{csrf_token()}}' class='form-control'>
+    @csrf
     
     <div class='form-group'>
         <label>Nome do produto</label>
