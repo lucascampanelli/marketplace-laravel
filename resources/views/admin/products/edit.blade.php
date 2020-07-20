@@ -4,8 +4,8 @@
     <h1>Editar produto</h1>
 
     <form action="{{route('admin.products.update', ['product' => $product->id])}}" method="post">
-    <input type="hidden" name="_token" value='{{csrf_token()}}' class='form-control'>
-    <input type="hidden" name="_method" value='PUT'>
+    @csrf
+    @method("PUT")
 
     <div class='form-group'>
         <label>Nome do produto</label>
