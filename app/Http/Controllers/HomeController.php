@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth'); //Verifica se o usuário está logado
     }
 
     /**
@@ -26,3 +26,5 @@ class HomeController extends Controller
         return view('home');
     }
 }
+
+// Request -> Middleware -> API (Acesso a qualquer rota) <- Marketplace
