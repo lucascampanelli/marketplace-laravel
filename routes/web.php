@@ -48,12 +48,12 @@ Route::group(['middleware' => ['auth']], function(){
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home'); // ->middleware('auth');
+//Route::get('/home', 'HomeController@index')->name('home'); // ->middleware('auth');
 
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/model', function() {
     //$product = Product::all(); //Select * from products
