@@ -17,7 +17,7 @@
 
     <div class='form-group'>
         <label>Descrição</label>
-        <input type="text" name='descricao' class='form-control @error("nome") is-invalid @enderror' value='{{old("nome")}}'>
+        <input type="text" name='descricao' class='form-control @error("nome") is-invalid @enderror' value='{{old("descricao")}}'>
         @error('descricao')
             <div class="invalid-feedback">
                 {{$message}}
@@ -27,7 +27,7 @@
 
     <div class='form-group'>
         <label>Conteúdo</label>
-        <textarea name="body" id="" cols="30" rows="10" class='form-control @error("nome") is-invalid @enderror' value='{{old("nome")}}'></textarea>
+        <textarea name="body" id="" cols="30" rows="10" class='form-control @error("nome") is-invalid @enderror' value='{{old("body")}}'></textarea>
         @error('body')
             <div class="invalid-feedback">
                 {{$message}}
@@ -37,7 +37,7 @@
 
     <div class='form-group'>
         <label>Preço</label>
-        <input type="text" name='price' class='form-control @error("nome") is-invalid @enderror' value='{{old("nome")}}'>
+        <input type="text" name='price' class='form-control @error("nome") is-invalid @enderror' value='{{old("price")}}'>
         @error('price')
             <div class="invalid-feedback">
                 {{$message}}
@@ -48,15 +48,6 @@
     <div class='form-group'>
         <label>Slug</label>
         <input type="text" name='slug' class='form-control'>
-    </div>
-
-    <div class='form-group'>
-        <label>Lojas</label>
-        <select name='store' class='form-control'>
-            @foreach($stores as $store)
-            <option value='{{$store->id}}'>{{$store->nome}}</option>
-            @endforeach
-        </select>
     </div>
 
     <div class='form-group'>

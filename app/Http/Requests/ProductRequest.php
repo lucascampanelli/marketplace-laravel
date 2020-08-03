@@ -25,7 +25,17 @@ class ProductRequest extends FormRequest
     {
         return [
             'nome' => 'required',
-            
+            'descricao' => 'required|min:30',
+            'body' => 'required',
+            'price' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'required' => 'Este campo é obrigatório',
+            'min' => 'Este campo deve ter no mínimo :min caracteres'
         ];
     }
 }
