@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style='margin-bottom: 40px;'>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style='margin-bottom: 40px'>
         <a class="navbar-brand" href="{{route('home')}}">Marketplace Laravel</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -29,8 +29,8 @@
           <div class="my-2 my-lg-0">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href='#' onclick="event.preventDefault(); document.querySelector('form.logout').submit();">Sair</a>
-                  <form action='{{route('logout')}}' class='logout' method='POST' style='display:none;'>
+                  <a class="nav-link" href='#' onclick="event.preventDefault(); document.querySelector('form.logout').submit()">Sair</a>
+                  <form action='{{route('logout')}}' class='logout' method='POST' style='display:none'>
                     @csrf
                   </form>
                 </li>

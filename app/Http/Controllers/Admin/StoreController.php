@@ -10,9 +10,9 @@ class StoreController extends Controller
 {
     public function index()
     {
-        $stores = \App\Store::paginate(10);
-        dd(auth()->user()->store); //Mostrar lojas do usuário logado
-        return view('admin.stores.index', compact('stores'));
+        $store = auth()->user()->store;
+
+        return view('admin.stores.index', compact('store'));
     }
 
     public function create()
