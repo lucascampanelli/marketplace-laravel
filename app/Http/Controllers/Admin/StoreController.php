@@ -17,6 +17,11 @@ class StoreController extends Controller
 
     public function create()
     {
+        if(auth()->user()->store()->count()){
+            flash('Você já possui uma loja!')->warning();
+            return redirect()->route('admin.stores.index');
+        }
+
         $users = \App\User::all(['id', 'name']);
 
         return view('admin.stores.create', compact('users'));
@@ -24,6 +29,11 @@ class StoreController extends Controller
 
     public function store(StoreRequest $request)
     {
+        if(auth()->user()->store()->count()){
+            flash('Você já possui uma loja!')->warning();
+            return redirect()->route('admin.stores.index');
+        }
+
         $data = $request->all();
         $user = auth()->user(); //Retorna o objeto do usuário autenticado
         
