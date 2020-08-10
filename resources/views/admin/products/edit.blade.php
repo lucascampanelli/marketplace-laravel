@@ -33,6 +33,17 @@
     </div>
 
     <div class='form-group'>
+        <label>Categorias</label>
+        <select name="categories[]" id="" class="form-control" multiple>
+            @foreach($categories as $category)
+                <option value="{{$category->id}}" @if($product->categories->contains($category)) selected @endif>
+                    {{$category->name}}
+                </option>
+            @endforeach
+        </select>
+    </div>
+
+    <div class='form-group'>
         <button type="submit" class='btn btn-lg btn-success'>Atualizar produto</button>
     </div>
 
