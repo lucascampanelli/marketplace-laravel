@@ -13,7 +13,7 @@ class StoreController extends Controller
     
     public function __construct()
     {
-        $this->middleware('user.has.store')->only(['create', 'store']); //->only() e ->except()
+        //$this->middleware('user.has.store')->only(['create', 'store']); //->only() e ->except()
     }
 
     public function index()
@@ -36,7 +36,7 @@ class StoreController extends Controller
         $user = auth()->user(); //Retorna o objeto do usuário autenticado
         
         if($request->hasFile('logo')){
-            $data['logo'] = $this->imageUpload($request); //o segundo parâmetro de imageUpload vai ser nulo
+            $data['logo'] = $this->imageUpload($request->file('logo')); //o segundo parâmetro de imageUpload vai ser nulo
         }
 
         $store = $user->store()->create($data);

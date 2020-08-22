@@ -6,19 +6,17 @@ use Illuminate\Http\Request;
 
 trait UploadTrait
 {
-    private function imageUpload(Request $request, $imageColumn = null) //Se não tiver imageColumn, será nulo
+    private function imageUpload($images, $imageColumn = null) //Se não tiver imageColumn, será nulo
     {
-        $images = $request->file('photos');
-
         $uploadedImages = [];
 
-        foreach($images as $image){
-            if(!is_null($imageColumn)){
+        if(!is_null($imageColumn)){ //ou is_array
+            foreach($images as $image){
                 $uploadedImages[] = [$imageColumn => $image->store('products', 'public')];
             }
-            else{
-                $uploadImages = $image; //Se imageColumn for nulo, retornará apenas o nome da imagem
-            }
+        }
+        else{
+            $uploadedImages = $images->store('logo', 'public'); //Se for nulo, salvará uma logo
         }
 
         return $uploadedImages;
